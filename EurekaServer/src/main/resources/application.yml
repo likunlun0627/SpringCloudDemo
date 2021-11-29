@@ -1,0 +1,22 @@
+server:
+  #    端口
+  port: 8081
+
+eureka:
+  instance:
+    #        eureka实例的主机名称
+    hostname: localhost
+  client:
+    #        是否将本项目作为服务注册到服务中心
+    register-with-eureka: false
+    #        是否需要检索服务
+    fetch-registry: false
+    #        eureka服务中心的访问地址
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+spring:
+  application:
+    name: eurka-server
+#  profiles:
+#    active: dev

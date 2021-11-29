@@ -1,0 +1,17 @@
+server:
+  #    端口
+  port: 8082
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 5      # 发出续约指令的间隔，默认30秒
+    lease-expiration-duration-in-seconds: 30  # 租期到期时间，默认90秒
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+    healthcheck:
+      enabled: true    # 开启健康检查， 依赖于 spring-boot-starter-actuator
+
+spring:
+  application:
+    name: eurka-client-one
