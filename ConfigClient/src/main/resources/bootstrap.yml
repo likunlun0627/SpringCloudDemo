@@ -1,0 +1,20 @@
+server:
+  port: 41000
+
+spring:
+  application:
+    name: my-config-client
+  cloud:
+    config:
+      profile: dev  # 拉取文件的profile
+      label: main   # 拉取的分支
+      name: ${spring.application.name}  # 指定拉取配置文件的 application
+      discovery:
+        enabled: true
+        service-id: my-config-server    # config服务的服务名称
+#      uri: http://localhost:40000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/    # Eureka Server的地址

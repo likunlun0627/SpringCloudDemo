@@ -9,9 +9,13 @@
         <module name="SpringCloudDemo" />
         <module name="EurekaServer" />
         <module name="EurekaClient1" />
+        <module name="ConfigServer" />
+        <module name="ConfigClient" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ConfigClient" target="1.8" />
+      <module name="ConfigServer" target="1.8" />
       <module name="EurekaClient1" target="1.8" />
       <module name="EurekaServer" target="1.8" />
       <module name="SpringCloudDemo" target="1.8" />
@@ -19,6 +23,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ConfigClient" options="-parameters" />
+      <module name="ConfigServer" options="-parameters" />
       <module name="EurekaClient1" options="-parameters" />
       <module name="EurekaServer" options="-parameters" />
       <module name="SpringCloudDemo" options="-parameters" />

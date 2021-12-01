@@ -1,0 +1,23 @@
+server:
+  port: 40000
+
+spring:
+  application:
+    name: my-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/likunlun0627/my-config-repo.git   # git地址
+          force-pull: true  # 配置中心通过git从远程git库，有时本地的拷贝被污染，这时配置中心无法从远程库更新本地配置,设置force-pull=true，则强制从远程库中更新本地库
+          default-label: main   # 默认拉取的分支
+          basedir: /tmp/spring-cloud-repo # 对于使用git,svn做为后端配置，从远程库获取配置文件，需要存储到本地文件
+
+# http://localhost:40000/my-config-server/dev/main
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 5      # 发出续约指令的间隔，默认30秒
+    lease-expiration-duration-in-seconds: 30  # 租期到期时间，默认90秒
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
