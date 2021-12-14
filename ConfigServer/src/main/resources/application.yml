@@ -2,6 +2,8 @@ server:
   port: 40000
 
 spring:
+#  profiles:
+#    active: git
   application:
     name: my-config-server
   cloud:
@@ -12,6 +14,16 @@ spring:
           force-pull: true  # 配置中心通过git从远程git库，有时本地的拷贝被污染，这时配置中心无法从远程库更新本地配置,设置force-pull=true，则强制从远程库中更新本地库
           default-label: main   # 默认拉取的分支
           basedir: /tmp/spring-cloud-repo # 对于使用git,svn做为后端配置，从远程库获取配置文件，需要存储到本地文件
+      label: main
+    bus:
+      refresh:
+        enabled: true
+#     配置rabbitmq信息；如果是都与默认值一致则不需要配置
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
 
 # http://localhost:40000/my-config-server/dev/main
 eureka:
@@ -21,3 +33,18 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8081/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # 暴露触发消息总线的地址
+        include: busrefresh
+
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    org:
+      springframework:
+        cloud: 'DEBUG'
+        bus: 'DEBUG'

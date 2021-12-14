@@ -22,7 +22,22 @@ spring:
 #        max-interval: 4000
 #        # 每次重试时间是之前的倍数
 #        multiplier: 1.2
+    bus:
+      refresh:
+        enabled: true
+  # 配置rabbitmq信息；如果是都与默认值一致则不需要配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+#注册中心配置
 eureka:
   client:
     service-url:
