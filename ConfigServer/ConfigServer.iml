@@ -144,5 +144,7 @@
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-stream-rabbit:3.1.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-config-monitor:3.0.5" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-bootstrap:3.0.4" level="project" />
+    <orderEntry type="library" name="Maven: de.codecentric:spring-boot-admin-starter-client:2.5.4" level="project" />
+    <orderEntry type="library" name="Maven: de.codecentric:spring-boot-admin-client:2.5.4" level="project" />
   </component>
 </module>
