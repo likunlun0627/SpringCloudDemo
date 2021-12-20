@@ -8,10 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ConfigServer" />
         <module name="SpringCloudDemo" />
+        <module name="AdminServer" />
         <module name="EurekaClient1" />
+        <module name="Gateway" />
         <module name="EurekaServer" />
         <module name="ConfigClient" />
-        <module name="AdminServer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,6 +21,7 @@
       <module name="ConfigServer" target="1.8" />
       <module name="EurekaClient1" target="1.8" />
       <module name="EurekaServer" target="1.8" />
+      <module name="Gateway" target="1.8" />
       <module name="SpringCloudDemo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -30,6 +32,7 @@
       <module name="ConfigServer" options="-parameters" />
       <module name="EurekaClient1" options="-parameters" />
       <module name="EurekaServer" options="-parameters" />
+      <module name="Gateway" options="-parameters" />
       <module name="SpringCloudDemo" options="-parameters" />
     </option>
   </component>

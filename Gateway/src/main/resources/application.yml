@@ -1,0 +1,20 @@
+server:
+  port: 42000
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    config:
+      enabled: true
+  config:
+    import: optional:configserver:${my-config-server:http://localhost:40000/}
+  boot:
+    admin:
+      client:
+        url: http://localhost:8090/
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/

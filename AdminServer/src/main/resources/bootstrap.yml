@@ -1,0 +1,33 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: admin-server
+  cloud:
+    config:
+      profile: dev  # 拉取文件的profile
+      label: master   # 拉取的分支
+      name: ${spring.application.name}  # 指定拉取配置文件的 application
+      discovery:
+        enabled: true
+        service-id: my-config-server    # config服务的服务名称
+      uri: http://localhost:40000   #Config Server地址
+      # 配置重试，默认是重试6次，最初是延迟1s再次重试，如果再失败，则延迟1.1*1s、1.1*1.1*1s、… 。可以使用这个配置
+    #      retry:
+    #        initial-interval: 2000
+    #        # 最多重试次数
+    #        max-attempts: 6
+    #        # 最大重试间隔
+    #        max-interval: 4000
+    #        # 每次重试时间是之前的倍数
+    #        multiplier: 1.2
+    bus:
+      refresh:
+        enabled: true
+    # 配置rabbitmq信息；如果是都与默认值一致则不需要配置
+    rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
